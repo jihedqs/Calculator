@@ -24,6 +24,7 @@ main {
   padding: 10px 20px;
 }
 .display {
+  font-family: "Roborto", sans-serif;
   padding: 10px 20px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -35,18 +36,19 @@ main {
   color: var(--text);
   opacity: 0.4;
   min-height: 32px;
+
   font-size: 20px;
 }
 .screen-current {
   min-height: 64px;
   color: var(--text);
-
   font-size: 40px;
 }
 .calc {
   background-color: var(--calculator-bg);
   border-radius: 15px;
   padding: 20px;
+  width: 400px;
 }
 
 .controls {
@@ -59,10 +61,13 @@ main {
   border: none;
   color: var(--text);
   font-size: 36px;
+  transition: all 0.7s;
   padding: 20px;
   border-radius: 15px;
 }
-
+.btn:active {
+  transform: scale(0.8);
+}
 .num {
   background-color: var(--operand);
 }
