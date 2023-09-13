@@ -1,7 +1,8 @@
 const clear = document.getElementById("clear");
 const delButton = document.getElementById("delete");
 const equal = document.getElementById("equal");
-const numBtn = document.querySelectorAll(".btn:not(#clear, #equal, #delete)");
+const numBtn = document.querySelectorAll(".num:not(#clear, #equal, #delete)");
+const opNums = document.querySelectorAll(".operator");
 const display = document.getElementById("currentOperationScreen");
 const smallScreen = document.getElementById("lastOperationScreen");
 const operators = ["+", "-", "*", "/"];
@@ -42,27 +43,24 @@ numBtn.forEach((btn) => {
 function appendDisplay(value) {
   if (currentOperator === "") {
     firstOperand += value;
-    display.textContent = firstOperand;
+    display.textContent = `${firstOperand} ${currentOperator}`;
   } else {
     secondOperand += value;
     display.textContent = secondOperand;
   }
 }
 // operator btns
-document
-  .querySelectorAll(".operator")
-  .forEach((btn) =>
-    btn.addEventListener("click", () => handleOperator(btn.textContent))
-  );
+opNums.forEach((btn) =>
+  btn.addEventListener("click", () => handleOperator(btn.textContent))
+);
 function handleOperator(operator) {
   if (firstOperand !== "") {
     if (currentOperator === "") {
-      smallScreen.textContent = firstOperand;
       currentOperator = operator;
+      smallScreen.textContent = `${firstOperand} ${currentOperator}`;
     } else {
       calculateResult();
       currentOperator = operator;
-      display.textContent = `${firstOperand}${currentOperator} `;
     }
   }
 }
@@ -82,7 +80,7 @@ function calculateResult() {
       case "+":
         pre = num1 + num2;
         result = pre;
-        smallScreen.textContent = ` ${num1} + ${num2} = ${roundResult(result)}`;
+        smallScreen.textContent = ` ${num1} + ${num2} = ${result}`;
         break;
       case "÷":
         if (num2 !== 0) {

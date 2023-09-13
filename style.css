@@ -77,7 +77,8 @@ main {
   padding: 4px 3px 0 0;
 }
 
-.operator {
+.operator,
+.op {
   background-color: var(--operator);
 }
 
