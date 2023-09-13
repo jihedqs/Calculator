@@ -27,9 +27,12 @@ function deleteLast() {
   if (currentOperator === "") {
     firstOperand = firstOperand.slice(0, -1);
     display.textContent = firstOperand;
+  } else if (secondOperand === "" && currentOperator != "") {
+    currentOperator = "";
+    smallScreen.textContent = firstOperand;
   } else {
     secondOperand = secondOperand.slice(0, -1);
-    display.textContent = secondOperand;
+    display.textContent = `${secondOperand}`;
   }
 }
 //append display
@@ -59,6 +62,7 @@ function handleOperator(operator) {
     } else {
       calculateResult();
       currentOperator = operator;
+      display.textContent = `${firstOperand}${currentOperator} `;
     }
   }
 }

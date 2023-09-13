@@ -20,7 +20,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 100px;
   padding: 10px 20px;
 }
 .display {
@@ -42,13 +42,14 @@ main {
 .screen-current {
   min-height: 64px;
   color: var(--text);
-  font-size: 40px;
+  font-size: 70px;
 }
 .calc {
   background-color: var(--calculator-bg);
   border-radius: 15px;
   padding: 20px;
   width: 400px;
+  font-family: "Roborto", sans-serif;
 }
 
 .controls {
@@ -61,12 +62,12 @@ main {
   border: none;
   color: var(--text);
   font-size: 36px;
-  transition: all 0.7s;
+  transition: all 0.3s;
   padding: 20px;
   border-radius: 15px;
 }
 .btn:active {
-  transform: scale(0.8);
+  transform: scale(0.9);
 }
 .num {
   background-color: var(--operand);
