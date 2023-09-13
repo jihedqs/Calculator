@@ -109,3 +109,10 @@ function calculateResult() {
     display.textContent = result;
   }
 }
+
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark")
+  document.querySelector('.checkbox-label').classList.toggle("dark")
+
+})

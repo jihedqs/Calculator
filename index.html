@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" type="x-icon" href="icon.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,13 +13,21 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="reset.css" />
-    <title> 🖩 Calculator</title>
+    <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Calculator</title>
   </head>
   <body>
     <main>
       <div class="calc">
+        <div>
+          <input type="checkbox" class="checkbox" id="checkbox" />
+          <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+          </label>
+        </div>
         <div class="display">
           <div class="screen-last" id="lastOperationScreen">0</div>
           <div class="screen-current" id="currentOperationScreen">0</div>
@@ -47,7 +56,17 @@
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <p>
+        Jihed Rezgani
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+      </p>
+      <a href="https://github.com/jihedqs">
+        <i class="gitblack fa-brands fa-github"></i>
+      </a>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
