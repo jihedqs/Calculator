@@ -2,6 +2,7 @@ const clear = document.getElementById("clear");
 const delButton = document.getElementById("delete");
 const equal = document.getElementById("equal");
 const numBtn = document.querySelectorAll(".num:not(#clear, #equal, #delete)");
+const dec = document.querySelector(".dec");
 const opNums = document.querySelectorAll(".operator");
 const display = document.getElementById("currentOperationScreen");
 const smallScreen = document.getElementById("lastOperationScreen");
@@ -43,12 +44,29 @@ numBtn.forEach((btn) => {
 function appendDisplay(value) {
   if (currentOperator === "") {
     firstOperand += value;
-    display.textContent = `${firstOperand} ${currentOperator}`;
+    display.textContent = `${firstOperand} `;
   } else {
     secondOperand += value;
     display.textContent = secondOperand;
   }
 }
+
+dec.addEventListener("click", () => appendDec("."));
+
+function appendDec(value) {
+  if (!firstOperand.includes(value)) {
+    if (currentOperator === "") {
+      firstOperand += value;
+      display.textContent = `${firstOperand} `;
+    }
+  } else if (!secondOperand.includes(value)) {
+    if (currentOperator !== "") {
+      secondOperand += value;
+      display.textContent = secondOperand;
+    }
+  }
+}
+
 // operator btns
 opNums.forEach((btn) =>
   btn.addEventListener("click", () => handleOperator(btn.textContent))
@@ -79,7 +97,7 @@ function calculateResult() {
     switch (currentOperator) {
       case "+":
         pre = num1 + num2;
-        result = pre;
+        result = roundResult(pre);
         smallScreen.textContent = ` ${num1} + ${num2} = ${result}`;
         break;
       case "÷":
@@ -110,9 +128,8 @@ function calculateResult() {
   }
 }
 
-const checkbox = document.getElementById("checkbox")
+const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("change", () => {
-  document.body.classList.toggle("dark")
-  document.querySelector('.checkbox-label').classList.toggle("dark")
-
-})
+  document.body.classList.toggle("dark");
+  document.querySelector(".checkbox-label").classList.toggle("dark");
+});
